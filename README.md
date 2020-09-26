@@ -2,3 +2,8 @@
 2. create firebase account 
 3. install firebase. 
 4. install material ui
+
+deploy: 
+firebase init
+npm run build 
+firebase deploy
