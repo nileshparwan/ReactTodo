@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import SearchBox from './SearchBox';
 
-function Header({submitHandler, searchInput, setSearchInput }) {
+function Header() {
     return (
         <nav className="header">
             <div className="header__toggler">
@@ -10,7 +10,7 @@ function Header({submitHandler, searchInput, setSearchInput }) {
                 <span></span>
             </div>
             <form className="header__form">
-                <SearchBox submitHandler={submitHandler} searchInput={searchInput} setSearchInput={setSearchInput} />
+                <SearchBox />
             </form>
         </nav>
     );

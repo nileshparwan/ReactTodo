@@ -2,8 +2,8 @@ import React from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import './SearchBox.css';
 
-function SearchBox({ submitHandler, searchInput, setSearchInput }) {
-    
+function SearchBox() {
+    const [search, setSearch] = React.useState('');
 
     const searchHandler = (event) => {
         event.preventDefault();
@@ -21,17 +21,16 @@ function SearchBox({ submitHandler, searchInput, setSearchInput }) {
         const submitBtn = searchBox && searchBox.querySelector(".searchBox__submitIcon");
         if (submitBtn && event.target.value.length > 0) {
             submitBtn.classList.add('submit');
-            return setSearchInput(event.target.value);
+            return setSearch(event.target.value);
         }
-        setSearchInput('');
+        setSearch('');
         (submitBtn && submitBtn.classList.contains('submit')) && submitBtn.classList.remove('submit');
         return;
     };
-
     return (
         <div className="searchBox">
-            <input type="text" value={searchInput} onChange={e => inputHandler(e)} aria-label="search" placeholder="Type to search..." />
-            <button type="submit" aria-label="submit-btn" onClick={submitHandler} className="searchBox__submitIcon">
+            <input type="text" value={search} onChange={e => inputHandler(e)} aria-label="search" placeholder="Type to search..." />
+            <button type="submit" aria-label="submit-btn" onClick={() => { }} className="searchBox__submitIcon">
                 <SearchIcon />
             </button>
             <button aria-label="search-btn" onClick={searchHandler} className="searchBox__searchIcon">

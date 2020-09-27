@@ -16,7 +16,6 @@ function App() {
   const [openTodo, setOpenTodo] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [currentTodo, setCurrentTodo] = React.useState({});
-  const [search, setSearch] = React.useState('');
 
   // when the page loads, we listen to the database and fetch new todos as they get add/remove
   React.useEffect(() => {
@@ -72,7 +71,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header submitHandler={() => {}} searchInput={search} setSearchInput={setSearch} />
+      <Header />
 
       <h1>What's up!</h1>
 
