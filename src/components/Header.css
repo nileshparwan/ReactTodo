@@ -1,0 +1,66 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 15px;
+  justify-content: space-between;
+}
+
+.header__toggler {
+  height: 20px;
+  width: 24px;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+}
+
+.header__toggler > input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  touch-action: none;
+}
+
+.header__toggler > span,
+.header__toggler > span::before,
+.header__toggler > span::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background: #8daaf6;
+  transition-duration: 0.25s;
+}
+
+.header__toggler > span::before {
+  content: '';
+  top: -5px;
+}
+.header__toggler > span::after {
+  content: '';
+  top: 5px;
+}
+
+.header__toggler > input:checked ~ span {
+  transform: rotate(45deg);
+}
+.header__toggler > input:checked ~ span:before {
+    top: 0;
+    transform: rotate(0);
+}
+.header__toggler > input:checked ~ span:after {
+  top: 0;
+  transform: rotate(90deg);
+}
