@@ -7,6 +7,7 @@ import firebase from 'firebase';
 import { db } from './config/firebase';
 import Modal, { POSITION } from './components/Modal';
 import './App.css';
+import Header from './components/Header';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
   const [openTodo, setOpenTodo] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const [currentTodo, setCurrentTodo] = React.useState({});
+  const [search, setSearch] = React.useState('');
 
   // when the page loads, we listen to the database and fetch new todos as they get add/remove
   React.useEffect(() => {
@@ -70,8 +72,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header submitHandler={() => {}} searchInput={search} setSearchInput={setSearch} />
 
-      <h1>What's up, Nilesh!</h1>
+      <h1>What's up!</h1>
 
       <div className="todo">
         <p>Today's tasks</p>
@@ -82,7 +85,7 @@ function App() {
                 return (
                   <li className="todo__listItem" key={index}>
                     <div className="todo__info">
-                      <div className="todo__tickContainer"/>
+                      <div className="todo__tickContainer" />
                       <strong>{todo.todo || ""}</strong>
                     </div>
                     <div className="todo__listItemBtn">
